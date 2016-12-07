@@ -1,0 +1,132 @@
+python gru_rnn.py --help
+
+# epoch = 100,
+# drop_out = 1, lambda = 0.001, hidden_dim_size = [300]
+
+-------------------------------
+# exp 1
+# input: full set, label: full set, predict: full set
+# no embedding, no duration, no notes
+
+python gru_rnn.py '../data/visit_full' 829 '../data/label_full' 829 'experiments/' --hidden_dim_size [300] --n_epochs 50 --embed_finetune 0 --experiment '1' --L2_softmax 0.001 --dropout_rate 1
+
+python test_gru_rnn.py 'experiments/model_exp1.34.npz' '../data/test_full' '../data/test_full' [300] --experiment '1' --input_dim_size 829
+-------------------------------
+# exp 2
+# input: full set, label: sub set, predict: sub set
+# no embedding, no duration, no notes
+
+python gru_rnn.py '../data/visit_full' 829 '../data/label_182' 182 'experiments/' --hidden_dim_size [300] --n_epochs 50 --embed_finetune 0 --experiment '2' --L2_softmax 0.001 --dropout_rate 1
+
+python test_gru_rnn.py 'experiments/model_exp2.21.npz' '../data/test_full' '../data/test_182' [300] --experiment '2' --input_dim_size 829
+-------------------------------
+# exp 3
+# input: full set, label: sub set, predict: sub set
+# training embedding, no duration, no notes
+
+python gru_rnn.py '../data/visit_full' 829 '../data/label_182' 182 'experiments/' --hidden_dim_size [300] --n_epochs 50 --embed_finetune 1 --experiment '3' --L2_softmax 0.001 --dropout_rate 1
+
+python test_gru_rnn.py 'experiments/model_exp3.31.npz' '../data/test_full' '../data/test_182' [300] --experiment '3' --input_dim_size 829
+-------------------------------
+# exp 4
+# input: full set, label: sub set, predict: sub set
+# sub set embedding, no duration, no notes
+
+python gru_rnn.py '../data/visit_182' 182 '../data/label_182' 182 'experiments/' --hidden_dim_size [300] --n_epochs 50 --embed_finetune 0 --experiment '4' --L2_softmax 0.001 --dropout_rate 1
+
+python test_gru_rnn.py 'experiments/model_exp4.28.npz' '../data/test_182' '../data/test_182' [300] --experiment '4' --input_dim_size 182
+-------------------------------
+# exp 5
+# input: full set, label: sub set, predict: sub set
+# PCA embedding-200, no duration, no notes
+
+python gru_rnn.py '../data/visit_full' 829 '../data/label_182' 182 'experiments/' --hidden_dim_size [300] --n_epochs 50 --embed_finetune 0 --experiment '5' --L2_softmax 0.001 --dropout_rate 1 --embed_file '../data/embedding_matrix_200'
+
+python test_gru_rnn.py 'experiments/model_exp5.22.npz' '../data/test_full' '../data/test_182' [300] --experiment '5' --input_dim_size 829 --embed_file '../data/embedding_matrix_200'
+-------------------------------
+# exp 6
+# input: full set, label: sub set, predict: sub set
+# PCA embedding-400, no duration, no notes
+
+python gru_rnn.py '../data/visit_full' 829 '../data/label_182' 182 'experiments/' --hidden_dim_size [300] --n_epochs 50 --embed_finetune 0 --experiment '6' --L2_softmax 0.001 --dropout_rate 1 --embed_file '../data/embedding_matrix_400'
+
+python test_gru_rnn.py 'experiments/model_exp6.22.npz' '../data/test_full' '../data/test_182' [300] --experiment '6' --input_dim_size 829 --embed_file '../data/embedding_matrix_400'
+-------------------------------
+# exp 7
+# input: full set, label: sub set, predict: sub set
+# sub set embedding - 250, no duration, no notes
+
+python gru_rnn.py '../data/visit_250' 250 '../data/label_182' 182 'experiments/' --hidden_dim_size [300] --n_epochs 50 --embed_finetune 0 --experiment '7' --L2_softmax 0.001 --dropout_rate 1
+
+python test_gru_rnn.py 'experiments/model_exp7.19.npz' '../data/test_250' '../data/test_182' [300] --experiment '7' --input_dim_size 250
+
+-------------------------------
+# exp 8
+# input: full set, label: sub set-250, predict: sub set
+# sub set embedding - 250, no duration, no notes
+
+python gru_rnn.py '../data/visit_250' 250 '../data/label_250' 250 'experiments/' --hidden_dim_size [300] --n_epochs 50 --embed_finetune 0 --experiment '8' --L2_softmax 0.001 --dropout_rate 1
+
+python test_gru_rnn.py 'experiments/model_exp8.31.npz' '../data/test_250' '../data/test_182' [300] --experiment '8' --input_dim_size 250
+
+
+-------------------------------
+# exp 9
+# input: full set, label: sub set, predict: sub set
+# PCA embedding-400, duration, no notes
+
+python gru_rnn.py '../data/visit_full' 829 '../data/label_182' 182 'experiments/' --hidden_dim_size [300] --n_epochs 50 --embed_finetune 0 --experiment '9' --L2_softmax 0.001 --dropout_rate 1 --embed_file '../data/embedding_matrix_400' --time_file '../data/duration'
+
+python test_gru_rnn.py 'experiments/model_exp9.15.npz' '../data/test_full' '../data/test_182' [300] --experiment '9' --input_dim_size 829 --embed_file '../data/embedding_matrix_400' --time_file '../data/test_duration'
+
+-------------------------------
+# exp 10
+# input: full set, label: sub set, predict: sub set
+# sub set embedding - 250, duration, no notes
+
+python gru_rnn.py '../data/visit_250' 250 '../data/label_182' 182 'experiments/' --hidden_dim_size [300] --n_epochs 50 --embed_finetune 0 --experiment '10' --L2_softmax 0.001 --dropout_rate 1 --time_file '../data/duration'
+
+python test_gru_rnn.py 'experiments/model_exp10.19.npz' '../data/test_250' '../data/test_182' [300] --experiment '10' --input_dim_size 250 --time_file '../data/test_duration'
+-------------------------------
+# exp 11
+# input: full set, label: sub set, predict: sub set
+# no embedding, duration, no notes
+
+python gru_rnn.py '../data/visit_full' 829 '../data/label_182' 182 'experiments/' --hidden_dim_size [300] --n_epochs 50 --embed_finetune 0 --experiment '11' --L2_softmax 0.001 --dropout_rate 1 --time_file '../data/duration'
+
+python test_gru_rnn.py 'experiments/model_exp11.16.npz' '../data/test_full' '../data/test_182' [300] --experiment '11' --input_dim_size 829 --time_file '../data/test_duration'
+
+-------------------------------
+# exp 12
+# input: full set, label: sub set, predict: sub set
+# PCA embedding-400, no duration, notes: n=50
+
+python gru_rnn.py '../data/visit_full' 829 '../data/label_182' 182 'experiments/' --hidden_dim_size [300] --n_epochs 50 --embed_finetune 0 --experiment '12' --L2_softmax 0.001 --dropout_rate 1 --embed_file '../data/embedding_matrix_400' --topic_file '../data/visit_topic_50' --topic_size 50
+
+python test_gru_rnn.py 'experiments/model_exp12.25.npz' '../data/test_full' '../data/test_182' [300] --experiment '12' --input_dim_size 829 --embed_file '../data/embedding_matrix_400' --topic_file '../data/test_topic_50' --topic_size 50
+
+-------------------------------
+# exp 13
+# input: full set, label: sub set, predict: sub set
+# PCA embedding-400, no duration, notes: n=200
+
+python gru_rnn.py '../data/visit_full' 829 '../data/label_182' 182 'experiments/' --hidden_dim_size [300] --n_epochs 50 --embed_finetune 0 --experiment '13' --L2_softmax 0.001 --dropout_rate 1 --embed_file '../data/embedding_matrix_400' --topic_file '../data/visit_topic_200' --topic_size 200
+
+python test_gru_rnn.py 'experiments/model_exp13.16.npz' '../data/test_full' '../data/test_182' [300] --experiment '13' --input_dim_size 829 --embed_file '../data/embedding_matrix_400' --topic_file '../data/test_topic_200' --topic_size 200
+
+-------------------------------
+# exp 14
+# input: full set, label: sub set, predict: sub set
+# PCA embedding-400, no duration, notes: tfidf n=200
+
+python gru_rnn.py '../data/visit_full' 829 '../data/label_182' 182 'experiments/' --hidden_dim_size [300] --n_epochs 50 --embed_finetune 0 --experiment '14' --L2_softmax 0.001 --dropout_rate 1 --embed_file '../data/embedding_matrix_400' --topic_file '../data/visit_tfidf_200' --topic_size 200
+
+python test_gru_rnn.py 'experiments/model_exp14.24.npz' '../data/test_full' '../data/test_182' [300] --experiment '14' --input_dim_size 829 --embed_file '../data/embedding_matrix_400' --topic_file '../data/test_tfidf_200' --topic_size 200
+-------------------------------
+# exp 15
+# input: full set, label: sub set, predict: sub set
+# PCA embedding-400, no duration, notes: tfidf n=400
+
+python gru_rnn.py '../data/visit_full' 829 '../data/label_182' 182 'experiments/' --hidden_dim_size [300] --n_epochs 50 --embed_finetune 0 --experiment '15' --L2_softmax 0.001 --dropout_rate 1 --embed_file '../data/embedding_matrix_400' --topic_file '../data/visit_tfidf_400' --topic_size 200
+
+python test_gru_rnn.py 'experiments/model_exp15.25.npz' '../data/test_full' '../data/test_182' [300] --experiment '15' --input_dim_size 829 --embed_file '../data/embedding_matrix_400' --topic_file '../data/test_tfidf_400' --topic_size 200

@@ -1,0 +1,108 @@
+python gru_rnn.py --help
+
+# epoch = 20, full set of codes
+-------------------------------
+# exp 1_fold1
+# drop_out = 0, lambda = 0.01, hidden_dim_size = [200]
+# train model
+python gru_rnn.py '../data/rnn-cv/visit_cv_1' 829 '../data/rnn-cv/label_cv_1' 829 'experiments-cv/' --hidden_dim_size [200] --n_epochs 20 --embed_finetune 0 --experiment '1_f1' --L2_softmax 0.01 --dropout_rate 1
+# test model
+python test_gru_rnn.py 'experiments-cv/model_exp1_f1.16.npz' '../data/rnn-cv/test_cv_1' '../data/rnn-cv/test_cv_1' [200] --experiment '1_f1' --input_dim_size 829
+
+exp 1_fold2
+# train model
+python gru_rnn.py '../data/rnn-cv/visit_cv_2' 829 '../data/rnn-cv/label_cv_2' 829 'experiments-cv/' --hidden_dim_size [200] --n_epochs 20 --embed_finetune 0 --experiment '1_f2' --L2_softmax 0.01 --dropout_rate 1
+# test model
+python test_gru_rnn.py 'experiments-cv/model_exp1_f2.18.npz' '../data/rnn-cv/test_cv_2' '../data/rnn-cv/test_cv_2' [200] --experiment '1_f2' --input_dim_size 829
+-------------------------------
+# exp 2_fold1
+# drop_out = 0, lambda = 0.01, hidden_dim_size = [150]
+# train model
+python gru_rnn.py '../data/rnn-cv/visit_cv_1' 829 '../data/rnn-cv/label_cv_1' 829 'experiments-cv/' --hidden_dim_size [150] --n_epochs 20 --embed_finetune 0 --experiment '2_f1' --L2_softmax 0.01 --dropout_rate 1
+# test model
+python test_gru_rnn.py 'experiments-cv/model_exp2_f1.19.npz' '../data/rnn-cv/test_cv_1' '../data/rnn-cv/test_cv_1' [150] --experiment '2_f1' --input_dim_size 829
+
+exp 2_fold2
+# train model
+python gru_rnn.py '../data/rnn-cv/visit_cv_2' 829 '../data/rnn-cv/label_cv_2' 829 'experiments-cv/' --hidden_dim_size [150] --n_epochs 20 --embed_finetune 0 --experiment '2_f2' --L2_softmax 0.01 --dropout_rate 1
+# test model
+python test_gru_rnn.py 'experiments-cv/model_exp2_f2.19.npz' '../data/rnn-cv/test_cv_2' '../data/rnn-cv/test_cv_2' [150] --experiment '2_f2' --input_dim_size 829
+-------------------------------
+# exp 3_fold1
+# drop_out = 0, lambda = 0.01, hidden_dim_size = [250]
+# train model
+python gru_rnn.py '../data/rnn-cv/visit_cv_1' 829 '../data/rnn-cv/label_cv_1' 829 'experiments-cv/' --hidden_dim_size [250] --n_epochs 20 --embed_finetune 0 --experiment '3_f1' --L2_softmax 0.01 --dropout_rate 1
+# test model
+python test_gru_rnn.py 'experiments-cv/model_exp3_f1.18.npz' '../data/rnn-cv/test_cv_1' '../data/rnn-cv/test_cv_1' [250] --experiment '3_f1' --input_dim_size 829
+
+exp 3_fold2
+# train model
+python gru_rnn.py '../data/rnn-cv/visit_cv_2' 829 '../data/rnn-cv/label_cv_2' 829 'experiments-cv/' --hidden_dim_size [250] --n_epochs 20 --embed_finetune 0 --experiment '3_f2' --L2_softmax 0.01 --dropout_rate 1
+# test model
+python test_gru_rnn.py 'experiments-cv/model_exp3_f2.19.npz' '../data/rnn-cv/test_cv_2' '../data/rnn-cv/test_cv_2' [250] --experiment '3_f2' --input_dim_size 829
+-------------------------------
+# exp 4_fold1
+# drop_out = 0, lambda = 0.01, hidden_dim_size = [300]
+# train model
+python gru_rnn.py '../data/rnn-cv/visit_cv_1' 829 '../data/rnn-cv/label_cv_1' 829 'experiments-cv/' --hidden_dim_size [300] --n_epochs 20 --embed_finetune 0 --experiment '4_f1' --L2_softmax 0.01 --dropout_rate 1
+# test model
+python test_gru_rnn.py 'experiments-cv/model_exp4_f1.19.npz' '../data/rnn-cv/test_cv_1' '../data/rnn-cv/test_cv_1' [300] --experiment '4_f1' --input_dim_size 829
+
+exp 4_fold2
+# train model
+python gru_rnn.py '../data/rnn-cv/visit_cv_2' 829 '../data/rnn-cv/label_cv_2' 829 'experiments-cv/' --hidden_dim_size [300] --n_epochs 20 --embed_finetune 0 --experiment '4_f2' --L2_softmax 0.01 --dropout_rate 1
+# test model
+python test_gru_rnn.py 'experiments-cv/model_exp4_f2.19.npz' '../data/rnn-cv/test_cv_2' '../data/rnn-cv/test_cv_2' [300] --experiment '4_f2' --input_dim_size 829
+
+-------------------------------
+# exp 5_fold1
+# drop_out = 0, lambda = 0.01, hidden_dim_size = [300,300]
+# train model
+python gru_rnn.py '../data/rnn-cv/visit_cv_1' 829 '../data/rnn-cv/label_cv_1' 829 'experiments-cv/' --hidden_dim_size [300,300] --n_epochs 20 --embed_finetune 0 --experiment '5_f1' --L2_softmax 0.01 --dropout_rate 1
+# test model
+python test_gru_rnn.py 'experiments-cv/model_exp5_f1.18.npz' '../data/rnn-cv/test_cv_1' '../data/rnn-cv/test_cv_1' [300,300] --experiment '5_f1' --input_dim_size 829
+
+exp 5_fold2
+# train model
+python gru_rnn.py '../data/rnn-cv/visit_cv_2' 829 '../data/rnn-cv/label_cv_2' 829 'experiments-cv/' --hidden_dim_size [300,300] --n_epochs 20 --embed_finetune 0 --experiment '5_f2' --L2_softmax 0.01 --dropout_rate 1
+# test model
+python test_gru_rnn.py 'experiments-cv/model_exp5_f2.19.npz' '../data/rnn-cv/test_cv_2' '../data/rnn-cv/test_cv_2' [300,300] --experiment '5_f2' --input_dim_size 829
+-------------------------------
+# exp 6_fold1
+# drop_out = 0.5, lambda = 0.01, hidden_dim_size = [300]
+# train model
+python gru_rnn.py '../data/rnn-cv/visit_cv_1' 829 '../data/rnn-cv/label_cv_1' 829 'experiments-cv/' --hidden_dim_size [300] --n_epochs 20 --embed_finetune 0 --experiment '6_f1' --L2_softmax 0.01 --dropout_rate 0.5
+# test model
+python test_gru_rnn.py 'experiments-cv/model_exp6_f1.18.npz' '../data/rnn-cv/test_cv_1' '../data/rnn-cv/test_cv_1' [300] --experiment '6_f1' --input_dim_size 829
+
+exp 6_fold2
+# train model
+python gru_rnn.py '../data/rnn-cv/visit_cv_2' 829 '../data/rnn-cv/label_cv_2' 829 'experiments-cv/' --hidden_dim_size [300] --n_epochs 20 --embed_finetune 0 --experiment '6_f2' --L2_softmax 0.01 --dropout_rate 0.5
+# test model
+python test_gru_rnn.py 'experiments-cv/model_exp6_f2.19.npz' '../data/rnn-cv/test_cv_2' '../data/rnn-cv/test_cv_2' [300] --experiment '6_f2' --input_dim_size 829
+-------------------------------
+# exp 7_fold1
+# drop_out = 0.5, lambda = 0.01, hidden_dim_size = [300,300]
+# train model
+python gru_rnn.py '../data/rnn-cv/visit_cv_1' 829 '../data/rnn-cv/label_cv_1' 829 'experiments-cv/' --hidden_dim_size [300,300] --n_epochs 20 --embed_finetune 0 --experiment '7_f1' --L2_softmax 0.01 --dropout_rate 0.5
+# test model
+python test_gru_rnn.py 'experiments-cv/model_exp7_f1.19.npz' '../data/rnn-cv/test_cv_1' '../data/rnn-cv/test_cv_1' [300,300] --experiment '7_f1' --input_dim_size 829
+
+exp 7_fold2
+# train model
+python gru_rnn.py '../data/rnn-cv/visit_cv_2' 829 '../data/rnn-cv/label_cv_2' 829 'experiments-cv/' --hidden_dim_size [300,300] --n_epochs 20 --embed_finetune 0 --experiment '7_f2' --L2_softmax 0.01 --dropout_rate 0.5
+# test model
+python test_gru_rnn.py 'experiments-cv/model_exp7_f2.19.npz' '../data/rnn-cv/test_cv_2' '../data/rnn-cv/test_cv_2' [300,300] --experiment '7_f2' --input_dim_size 829
+-------------------------------
+# exp 8_fold1
+# drop_out = 1, lambda = 0.001, hidden_dim_size = [300]
+# train model
+python gru_rnn.py '../data/rnn-cv/visit_cv_1' 829 '../data/rnn-cv/label_cv_1' 829 'experiments-cv/' --hidden_dim_size [300] --n_epochs 20 --embed_finetune 0 --experiment '8_f1' --L2_softmax 0.001 --dropout_rate 1
+# test model
+python test_gru_rnn.py 'experiments-cv/model_exp8_f1.19.npz' '../data/rnn-cv/test_cv_1' '../data/rnn-cv/test_cv_1' [300] --experiment '8_f1' --input_dim_size 829
+
+exp 8_fold2
+# train model
+python gru_rnn.py '../data/rnn-cv/visit_cv_2' 829 '../data/rnn-cv/label_cv_2' 829 'experiments-cv/' --hidden_dim_size [300] --n_epochs 20 --embed_finetune 0 --experiment '8_f2' --L2_softmax 0.001 --dropout_rate 1
+# test model
+python test_gru_rnn.py 'experiments-cv/model_exp8_f2.19.npz' '../data/rnn-cv/test_cv_2' '../data/rnn-cv/test_cv_2' [300] --experiment '8_f2' --input_dim_size 829
