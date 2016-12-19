@@ -5,6 +5,7 @@ The project is to predict clinical events for a patient’s next visit, to assis
 The originial code for GRU RNNs in [2] is available on [3], and is modified in this project.
 
 References
+
 [1] https://mimic.physionet.org/
 
 [2] Edward Choi, Mohammad Taha Bahadori, and Jimeng Sun. Doctor ai: Predicting clinical events via recurrent neural networks. arXiv preprint arXiv:1511.05942, 2015.
